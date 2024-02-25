@@ -1,0 +1,83 @@
+/* Style for body */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #1a237e; /* Dark Blue */
+    color: #fff;
+}
+
+/* Style for navigation */
+nav {
+    background-color: #0d47a1; /* Darker Blue */
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Style for logo */
+.logo {
+    width: 100px;
+    height: auto;
+}
+
+/* Style for navbar */
+.navbar {
+    list-style: none;
+}
+
+.navbar li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.navbar li a {
+    text-decoration: none;
+    color: #fff;
+}
+
+/* Style for registration section */
+.registration {
+    padding: 50px;
+}
+
+/* Style for form */
+.register-form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+/* Style for footer */
+.footer {
+    background-color: #0d47a1; /* Darker Blue */
+    color: #fff;
+    padding: 20px;
+}
+
+/* Style for footer links */
+.footlinks ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footlinks ul li {
+    margin-bottom: 10px;
+}
+
+.footlinks ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Style for social icons */
+.social a {
+    color: #fff;
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+.social a:hover {
+    color: #ffeb3b; /* Yellow */
+}
