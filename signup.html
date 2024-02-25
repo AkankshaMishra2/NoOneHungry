@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,6 +15,9 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
+            background-image: url('https://cdn.pixabay.com/photo/2021/04/24/00/45/belief-6202982_1280.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
         }
         .signup-container {
             background-color: #fff;
@@ -64,16 +68,110 @@
 <body>
     <div class="signup-container">
         <h2>Sign Up</h2>
-        <form action="your-signup-script.php" method="post">
-            <input type="text" name="fullname" placeholder="Full Name" required>
-            <input type="email" name="email" placeholder="Email" required>
-            <input type="text" name="username" placeholder="Username" required>
-            <input type="password" name="password" placeholder="Password" required>
+        <form action="#" method="post" id="signup">
+            <input type="text" id="fullname" name="fullname" placeholder="Full Name" required>
+            <input type="email" id="email" name="email" placeholder="Email" required>
+            <input type="text" id="username" name="username" placeholder="Username" required>
+            <input type="password" id="password" name="password" placeholder="Password" required>
             <input type="checkbox" id="terms" required>
             <label for="terms">I agree to the <a href="#">terms and conditions</a></label>
             <input type="submit" value="Sign Up">
         </form>
-        <p>Already have an account? <a href="#" class="login-link">Login</a></p>
+        <p id="success-message" style="display:none; color:green;">Successfully registered!</p>
+        <p>Already have an account? <a href="signin.html" class="login-link">Login</a></p>
     </div>
+
+
+
+    
+<!-- javascript work is here below...  -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+<script>
+const firebaseConfig = {
+    apiKey: "AIzaSyC3spYvAgOd1Kd59_2aqiLhKtDbUZjeRsc",
+    authDomain: "noonehungry-c88c2.firebaseapp.com",
+    databaseURL: "https://noonehungry-c88c2-default-rtdb.firebaseio.com",
+    projectId: "noonehungry-c88c2",
+    storageBucket: "noonehungry-c88c2.appspot.com",
+    messagingSenderId: "137191202335",
+    appId: "1:137191202335:web:b31d3af002a2a7bf373f2a",
+    measurementId: "G-EL0FHZMNZJ"
+  };
+
+//initialize firebase
+firebase.initializeApp(firebaseConfig);
+// const analytics = getAnalytics(app);
+
+// reference your database
+var signupDB = firebase.database().ref("signup");
+
+document.getElementById("signup").addEventListener("submit", submitForm);
+
+function submitForm(e) {
+  e.preventDefault();
+
+  var username = getElementVal("username");
+  var password = getElementVal("password");
+  var fullname = getElementVal("fullname");
+  var email = getElementVal("email");
+  
+
+  saveMessages(username, password, fullname, email);
+
+  //   enable alert
+  document.querySelector(".alert").style.display = "block";
+
+  //   remove the alert
+  setTimeout(() => {
+    document.querySelector(".alert").style.display = "none";
+  }, 3000);
+
+  //   reset the form
+  document.getElementById("signup").reset();
+}
+
+const saveMessages = (username, password, fullname, email) => {
+  var newContactForm = signupDB.push();
+
+  newContactForm.set({
+    username: username,
+    password: password,
+    fullname: fullname,
+    email: email,
+    // msgContent: msgContent,
+  });
+
+   // Redirect to the homepage after signup
+ window.location.href = "afterdonation.html";
+};
+
+const getElementVal = (id) => {
+  return document.getElementById(id).value;
+ 
+};
+function submitForm(e) {
+    e.preventDefault();
+
+    var username = getElementVal("username");
+    var password = getElementVal("password");
+    var fullname = getElementVal("fullname");
+    var email = getElementVal("email");
+
+    saveMessages(username, password, fullname, email);
+
+    // Show success message
+    document.getElementById("success-message").style.display = "block";
+
+    // Hide success message after 3 seconds
+    setTimeout(() => {
+        document.getElementById("success-message").style.display = "none";
+    }, 3000);
+
+    // Reset the form
+    document.getElementById("signup").reset();
+}
+
+
+</script>
 </body>
 </html>

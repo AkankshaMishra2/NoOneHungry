@@ -11,6 +11,9 @@
             margin: 0;
             padding: 0;
             background-color: #f5f5f5;
+            background-image: url('https://media.istockphoto.com/id/1158900632/photo/hands-of-poor-asking-for-food-africa.jpg?s=612x612&w=0&k=20&c=t6UEwktTaNnW-1ZEUp8aRhDdLJCe9QO83keY20Oz9XQ=');
+            background-repeat: no-repeat;
+            background-size: cover;
         }
         
         header {
@@ -21,16 +24,16 @@
         }
         
         h1 {
-            margin-top: 0;
+            margin-top: 10px;
         }
         
-        .container {
-            max-width: 400px;
-            margin: 20px auto;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            background-color: #fff;
+        .container1 {
+        max-width: 400px;
+        margin: 20px auto;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        background-color: rgba(255, 255, 255, 0.8); /* change the last value to adjust the transparency */
         }
         
         .column {
@@ -66,53 +69,176 @@
         input[type="submit"]:hover {
             background-color: #555;
         }
+
+        .home-button {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            border: none;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-size: 16px;
+            border-radius: 5px;
+            color: #fff;
+            margin-top: 10px;
+        }
     </style>
 </head>
 <body>
     <header>
         <h1>Donate Food</h1>
+        <a href="homepage.html" class="home-button">Home</a>
     </header>
 
-    <div class="container">
-        <form action="#">
-            <div class="column">
-                <label for="name">Your Name:</label>
-                <input type="text" id="name" name="name" required>
+   
+        <div class="container1" >
+            <form action="#" method="post" id="afterd" >
+                <div class="column">
+                    <label for="name">Your Name:</label>                       
+                    <input type="text" id="name" name="name" required>
+    
+    
+                    <label for="food">Select Food Type:</label>              
+                    <select id="foodType" name="food">
+                        <option value="vegetarian">Vegetarian</option>
+                        <option value="non-vegetarian">Non-Vegetarian</option>
+                        <option value="both">Both</option>
+                    </select>
+                </div>
+    
+                <div class="column">
+                    <label for="quantity">Quantity (in Kg):</label>           
+                    <input type="number" id="qty" name="quantity" required>
+    
+                    <label for="pickup">Preferred Pickup Time:</label>       
+                    <input type="time" id="prefTime" name="pickup" required>
+                    <label for="location">Preferred Location:</label>         
+                    <input type="text" id="prefLoc" name="location" required>
+                    <label for="pincode">Pincode:</label>         
+                    <input type="text" id="pincode" name="pincode" required>
+    
+                    <label for="preparation">Food Preparation Date:</label>   
+                    <input type="datetime-local" id="prepDate" name="preparation" required>
+    
+                    <label for="notes">Additional Notes:</label>             
+                    <textarea id="addNotes" name="notes" rows="4"></textarea>
+                </div>
+    
+                <div style="clear: both;"></div>
+    
+                <input type="submit" value="Donate Food">
+            </form>
+        </div>
+        <!-- <div class="container2">
+            <img src="https://serudsindia.org/wp-content/uploads/2018/07/9.png" alt="Image 3">
+            <img src="https://serudsindia.org/wp-content/uploads/2018/07/5.png" alt="Image 1" class="active">
+            <img src="https://serudsindia.org/wp-content/uploads/2018/07/3.png" alt="Image 2">
+            <img src="https://serudsindia.org/wp-content/uploads/2018/07/2.png" alt="Image 3">
+            <img src="https://serudsindia.org/wp-content/uploads/2018/07/1.png" alt="Image 3">
+            <img src="https://serudsindia.org/wp-content/uploads/2018/07/6.png" alt="Image 3">
+            <img src="https://serudsindia.org/wp-content/uploads/2018/07/7.png" alt="Image 3">
+        </div> -->
+   
+   
+<!-- javascript work is here below...  -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+<script>
+    //for images running on side
+    document.addEventListener("DOMContentLoaded", function() {
+    const images = document.querySelectorAll(".container2 img");
+    let currentIndex = 0;
+  
+    function showImage(index) {
+      images.forEach((image, idx) => {
+        if (idx === index) {
+          image.classList.add("active");
+        } else {
+          image.classList.remove("active");
+        }
+      });
+    }
+  
+    function rotateImages() {
+      currentIndex = (currentIndex + 1) % images.length;
+      showImage(currentIndex);
+    }
+  
+    setInterval(rotateImages, 3000); // Change image every 2 seconds (adjust as needed)
+  });
+  
 
-               
 
-                <label for="location">Preferred Location:</label>
-                <input type="text" id="location" name="location" required>
+  // for firebase
+const firebaseConfig = {
+    apiKey: "AIzaSyC3spYvAgOd1Kd59_2aqiLhKtDbUZjeRsc",
+    authDomain: "noonehungry-c88c2.firebaseapp.com",
+    databaseURL: "https://noonehungry-c88c2-default-rtdb.firebaseio.com",
+    projectId: "noonehungry-c88c2",
+    storageBucket: "noonehungry-c88c2.appspot.com",
+    messagingSenderId: "137191202335",
+    appId: "1:137191202335:web:b31d3af002a2a7bf373f2a",
+    measurementId: "G-EL0FHZMNZJ"
+  };
 
-                <label for="food">Select Food Type:</label>
-                <select id="food" name="food">
-                    <option value="vegetarian">Vegetarian</option>
-                    <option value="non-vegetarian">Non-Vegetarian</option>
-                    <option value="both">Both</option>
-                </select>
-            </div>
+//initialize firebase
+firebase.initializeApp(firebaseConfig);
+// const analytics = getAnalytics(app);
 
-            <div class="column">
-                <label for="quantity">Quantity (in Kg):</label>
-                <input type="number" id="quantity" name="quantity" required>
+// reference your database
+var afterdDB = firebase.database().ref("afterd");
 
-                <label for="pickup">Preferred Pickup Time:</label>
-                <input type="time" id="pickup" name="pickup" required>
-                <label for="location">Preferred Location:</label>
-                <input type="text" id="location" name="location" required>
+document.getElementById("afterd").addEventListener("submit", submitForm);
 
+function submitForm(e) {
+  e.preventDefault();
 
-                <label for="preparation">Food Preparation Date:</label>
-                <input type="datetime-local" id="preparation" name="preparation" required>
+  var name = getElementVal("name");
+  var foodType = getElementVal("foodType");
+  var qty = getElementVal("qty");
+  var prefTime = getElementVal("prefTime");
+  var prefLoc = getElementVal("prefLoc");
+  var prepDate = getElementVal("prepDate");
+  var addNotes = getElementVal("addNotes");
+  var pincode = getElementVal("pincode");
+//   var msgContent = getElementVal("msgContent");
 
-                <label for="notes">Additional Notes:</label>
-                <textarea id="notes" name="notes" rows="4"></textarea>
-            </div>
+  saveMessages(name, foodType, qty, prefTime, prefLoc, prepDate, addNotes, pincode);
 
-            <div style="clear: both;"></div>
+  //   enable alert
+  document.querySelector(".alert").style.display = "block";
 
-            <input type="submit" value="Donate Food">
-        </form>
-    </div>
+  //   remove the alert
+  setTimeout(() => {
+    document.querySelector(".alert").style.display = "none";
+  }, 3000);
+
+  //   reset the form
+  document.getElementById("afterd").reset();
+}
+
+const saveMessages = (name, foodType, qty, prefTime, prefLoc, prepDate, addNotes, pincode) => {
+  var newContactForm = afterdDB.push();
+
+  newContactForm.set({
+    name: name,
+    foodType: foodType,
+    qty: qty,
+    prefTime: prefTime,
+    prefLoc: prefLoc,
+    prepDate: prepDate,
+    addNotes: addNotes,
+    pincode: pincode,
+    // msgContent: msgContent,
+  });
+
+// Redirect to the homepage after signup
+ window.location.href = "homepage.html";
+};
+
+const getElementVal = (id) => {
+  return document.getElementById(id).value;
+};
+
+</script>
 </body>
 </html>

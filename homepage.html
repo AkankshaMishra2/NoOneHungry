@@ -2,14 +2,14 @@
 <head>
 	<title>Food Donator</title>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" type="text/css" href="b.css">
+	<link rel="stylesheet" type="text/css" href="homepage.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<style>
 		.container {
-    background-image: url('path/to/your/image.jpg');
-    background-size: cover; /* Adjust as needed */
-    background-position: center; /* Adjust as needed */
-	@media screen and (min-width: 768px) {
+			background-image: url('path/to/your/image.jpg');
+			background-size: cover; /* Adjust as needed */
+			background-position: center; /* Adjust as needed */
+			@media screen and (min-width: 768px) {
 		    .col6 {
 		        width: 50%;
 		        float: left;
@@ -37,18 +37,16 @@
 			<div class="input-box">
 				<i class="fa fa-map-marker"></i>
 				<input type="text" placeholder="Enter your location" />
-				<button class="s-btn">
+				<button class="s-btn" href="donation_list.html">
 					<i class="fa fa-search"></i>
 				</button>
 			</div>
 		</div>
 		<div class="col6">
 			<ul class="topnav">
-				<li><a href="#">Donate Food</a></li>
-				<li><a href="#">Request Food</a></li>
-				<li><a href="#sec3">About</a></li>
-				<li><a href="#">Sign in</a></li>
-				
+				<li><a href="donation_list.html">Available Food</a></li>
+				<li><a href="signin.html">Donate Food</a></li>
+				<li><a href="signin.html">Sign in</a></li>
 			</ul>
 		</div>
 		<div class="clearfix"></div>
@@ -59,11 +57,9 @@
 			<ul class="bottomnav">
 				<li class="active"><a href="#"><i class="fa fa-home"></i>  Home</a></li>
 				<li><a href="#about"><i class="fa fa-exclamation-circle"></i>  About</a></li>
-				<li><a href="#"><i class="fa fa-gear"></i>  Our Services</a></li>
-		
-				<li><a href="#"><i class="fa fa-map-marker"></i>  Contact</a></li>
+				<li><a href="#sec-5"><i class="fa fa-gear"></i>  Testimonial</a></li>
 			</ul>
-			<button class="b-btn">Become a Food Donator</button>
+			<button class="b-btn"><a href="signup.html" style="color: #fff; text-decoration: none">Become a Food Donator</a></button>
 			<div class="clearfix"></div>
 		</div>
 	</div>
@@ -122,15 +118,15 @@
 </section>	
 
 
-<section class="sec-3">
+<section class="testimonial">
 	<br><br>
 	<div class="container" id="about">
-		<h2 class="heading-3">About Food Donator</h2>
+		<h2 class="heading-3">About NoOne Hungry</h2>
 		<img src="">
 		<div class="clearfix"></div>
 		<br><br>
 		<div class="col6">
-			<p class="p3">Food Donator is dedicated to reducing food waste and ending hunger by connecting food donors with those in need. Our platform facilitates the donation process, making it easy for individuals and businesses to contribute to the community. Together, we can make a difference in the fight against hunger.</p>
+			<p class="p3">NoOne Hungry is dedicated to reducing food waste and ending hunger by connecting food donors with those in need. Our platform facilitates the donation process, making it easy for individuals and businesses to contribute to the community. Together, we can make a difference in the fight against hunger.</p>
 			<br><br>
 			<button class="btn-r">Read More</button>
 		</div>
@@ -141,15 +137,12 @@
 	</div>
 </section>
 
-
-
-
 <section class="sec-5">
 	<div class="container">
-		<h2 class="heading-2" style="color: var(--white)">What Our Donators Say</h2>
+		<h2 class="heading-2" style="color: var(--white); margin-bottom: 30px">What Our Donators Say</h2>
 		
 		<div class="testimonial">
-			<p class="p5">"Food Donator has made it incredibly easy for me to donate surplus food from my restaurant. It feels great to know that the food we don't use can help those in need. Thank you, Food Donator!"</p>
+			<p class="p5">"NoOne Hungry has made it incredibly easy for me to donate surplus food from my restaurant. It feels great to know that the food we don't use can help those in need. Thank you, Food Donator!"</p>
 			<p class="p5">As a single mother struggling to make ends meet, the local food charity has been a lifeline for me and my children. Their support not only provides nutritious meals but also restores hope and dignity. I'm immensely grateful for their kindness and generosity." - Sarah J.
 			</p>
 		</div>
@@ -157,7 +150,7 @@
 </section>
 
 <section class="map">
-	<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d447986.853145337!2d76.81114849633596!3d28.692718881263545!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d047309fff32f%3A0xfc5606ed1b5d46c3!2sDelhi!5e0!3m2!1sen!2sin!4v1646818342543!5m2!1sen!2sin" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4714985.285214364!2d68.10971195218805!3d20.59368403221531!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7cee8a1b7f87d%3A0xe968f55ea7634767!2sIndia!5e0!3m2!1sen!2sin!4v1648274826606!5m2!1sen!2sin" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
 </section>
 
 <footer class="footer-distributed">
@@ -174,13 +167,10 @@
 <div class="footer-left">
 <p class="footer-links">
 <a class="link-1" href="#">Home</a>
-<a href="#">About</a>
-<a href="#">Services</a>
-<a href="#">Vehicles</a>
-<a href="#">Packages</a>
-<a href="#">Contact</a>
+<a href="#about">About</a>
+<a href="#sec-5">Testimonial</a>
 </p>
-<p>Food Donator © 2024</p>
+<p>NoOne Hungry © 2024</p>
 </div>
 
 </footer>

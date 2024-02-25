@@ -11,24 +11,70 @@
             margin: 0;
             padding: 0;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
-            height: 100vh;
+            background-image: url('https://cdn.pixabay.com/photo/2021/04/24/00/45/belief-6202982_1280.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
         }
+
+        .navbar {
+            width: 100%;
+            background-color: #3A3C6C;
+            padding: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: white;
+            font-size: 24px;
+            margin-left: 20px;
+            text-decoration: none;
+        }
+
+        .navbar-links {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            margin-right: 20px;
+        }
+
+        .navbar-links li {
+            margin-right: 20px;
+        }
+
+        .navbar-links li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-links li a:hover {
+            color: #EBB14D;
+        }
+
         .login-container {
             background-color: #fff;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             padding: 40px;
             max-width: 400px;
-            width: 100%;
+            width: 90%; /* Adjusted width for better responsiveness */
             text-align: center;
+            position: relative;
+            margin-top: 60px;
         }
+
         h2 {
-            color: --darkblue #3A3C6C;;
-            color: #333;
+            color: #3A3C6C;
             margin-bottom: 30px;
         }
+
         input[type="text"],
         input[type="password"] {
             width: 100%;
@@ -38,6 +84,7 @@
             border-radius: 4px;
             box-sizing: border-box;
         }
+
         input[type="submit"] {
             background-color: #3A3C6C;
             color: white;
@@ -48,25 +95,86 @@
             cursor: pointer;
             width: 100%;
         }
+
         input[type="submit"]:hover {
-            background-color:  #EBB14D;
+            background-color: #EBB14D;
         }
+
         .signup-link {
             color: #007bff;
             text-decoration: none;
             font-weight: bold;
         }
+
+        /* Styling for success message */
+        .success-message {
+            position: absolute;
+            top: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #fff;
+            padding: 10px 20px;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: none;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+
+        .success-icon {
+            color: #4CAF50;
+            margin-right: 10px;
+        }
+
+        /* Media queries for responsiveness */
+        @media (max-width: 600px) {
+            .login-container {
+                width: 100%; /* Adjusted width for small screens */
+            }
+        }
     </style>
 </head>
 <body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <a href="#" class="logo"></a>
+        <ul class="navbar-links">
+            <li><a href="homepage.html">Home</a></li>
+        </ul>
+    </div>
+
     <div class="login-container">
         <h2>Login</h2>
-        <form action="your-login-script.php" method="post">
-            <input type="text" name="username" placeholder="Username" required>
-            <input type="password" name="password" placeholder="Password" required>
+        <form id="loginForm" action="#" method="post">
+            <input type="text" name="username" id="username" placeholder="Username" required>
+            <input type="password" name="password" id="password" placeholder="Password" required>
             <input type="submit" value="Login">
         </form>
-        <p>Don't have an account? <a href="#" class="signup-link">Sign Up</a></p>
+        <p>Don't have an account? <a href="signup.html" class="signup-link">Sign Up</a></p>
+        <!-- Success message container -->
+        <div class="success-message" id="successMessage">
+            <span class="success-icon">&#10003;</span>
+            <span>You have successfully logged in!</span>
+        </div>
     </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            var isLoggedIn = true;
+
+            if (isLoggedIn) {
+                document.getElementById('successMessage').classList.add('show');
+                setTimeout(function() {
+                    window.location.href = "afterdonation.html";
+                }, 2000);
+            } else {
+                alert("Invalid username or password. Please try again.");
+            }
+        });
+    </script>
 </body>
 </html>
